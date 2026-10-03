@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeskMate AI — AI front desk for your inbox & calendar</title>
+<meta name="description" content="DeskMate AI answers client emails, sends appointment reminders and asks for Google reviews, right inside your own Gmail and Google Calendar.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%AC%3C/text%3E%3C/svg%3E">
+<style>
+  :root { --bg:#f7f8fb; --card:#fff; --ink:#1d2433; --muted:#5d6678; --line:#e3e6ee; --brand:#3b5bdb; --brand-ink:#fff; --ok:#2b8a3e; --warn:#c92a2a; --soft:#eef2ff; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.55; }
+  .wrap { max-width:960px; margin:0 auto; padding:0 16px; }
+  header { background:linear-gradient(135deg,#3b5bdb,#5f3dc4); color:#fff; padding:40px 0 48px; }
+  .badge { display:inline-block; background:#ffd43b; color:#1d2433; font-weight:700; font-size:12px; letter-spacing:.08em; padding:4px 10px; border-radius:999px; }
+  h1 { font-size:clamp(26px,5vw,40px); line-height:1.15; margin:14px 0 10px; }
+  header p { font-size:18px; opacity:.92; max-width:640px; margin:0 0 20px; }
+  .btn { display:inline-block; border:0; cursor:pointer; text-decoration:none; font-weight:600; font-size:16px; padding:12px 20px; border-radius:10px; background:var(--brand); color:var(--brand-ink); }
+  header .btn { background:#fff; color:var(--brand); }
+  .btn.ghost { background:transparent; border:1px solid rgba(255,255,255,.6); color:#fff; margin-left:8px; }
+  .btn[disabled] { opacity:.6; cursor:wait; }
+  section { padding:36px 0 8px; }
+  h2 { font-size:24px; margin:0 0 6px; }
+  .sub { color:var(--muted); margin:0 0 18px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; }
+  .grid3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+  .step b { display:inline-flex; width:28px; height:28px; border-radius:50%; background:var(--soft); color:var(--brand); align-items:center; justify-content:center; margin-right:6px; }
+  label { font-weight:600; font-size:14px; display:block; margin:12px 0 6px; }
+  select, textarea { width:100%; font:inherit; padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--ink); }
+  textarea { min-height:130px; resize:vertical; }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .chip { border:1px solid var(--line); background:#fff; border-radius:999px; padding:6px 12px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .chip:hover { border-color:var(--brand); color:var(--brand); }
+  .row { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:14px; }
+  .muted { color:var(--muted); font-size:13px; }
+  .email { white-space:pre-wrap; background:#fbfcff; border:1px solid var(--line); border-left:4px solid var(--brand); border-radius:10px; padding:14px 16px; font-size:15px; }
+  .email .meta { font-size:12px; color:var(--muted); margin-bottom:8px; white-space:normal; }
+  .err { color:var(--warn); }
+  .tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+  .tab { border:1px solid var(--line); background:#fff; border-radius:8px; padding:8px 12px; cursor:pointer; font-size:14px; color:var(--ink); }
+  .tab.on { background:var(--brand); color:#fff; border-color:var(--brand); }
+  .feat li { margin:6px 0; }
+  .price { font-size:34px; font-weight:800; }
+  .note { background:var(--soft); border-radius:12px; padding:14px 16px; font-size:14px; color:#2b3550; }
+  footer { margin:40px 0 0; padding:24px 0 40px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+  footer a { color:var(--muted); }
+  table { width:100%; border-collapse:collapse; font-size:13px; } td,th { text-align:left; border-bottom:1px solid var(--line); padding:6px 4px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="badge">LIVE DEMO</span>
+    <h1>Your inbox and calendar, answered 24/7 — automatically.</h1>
+    <p>DeskMate AI replies to client emails in seconds, reminds clients of appointments, asks every client for a Google review and follows up with leads — right inside your own Gmail and Google Calendar.</p>
+    <a class="btn" href="#try" target="_self" onclick="document.getElementById('try').scrollIntoView({behavior:'smooth'});return false;">Try it now</a>
+    <a class="btn ghost" href="https://buy.stripe.com/test_9B6fZg9kl2iG8aw29N5J600" target="_blank" rel="noopener">Get started</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2>How it works</h2>
+    <p class="sub">No new software to learn. It works inside the tools you already use.</p>
+    <div class="grid3">
+      <div class="card step"><b>1</b><strong>We install it</strong><p class="muted">In your own Google account, in about 15 minutes. Your data stays in your account.</p></div>
+      <div class="card step"><b>2</b><strong>You fill one simple sheet</strong><p class="muted">Your hours, services, prices, FAQ, booking and review links. Turn each feature ON or OFF.</p></div>
+      <div class="card step"><b>3</b><strong>It runs by itself</strong><p class="muted">Every 10 minutes, day and night. You get a short summary every morning.</p></div>
+    </div>
+  </section>
+
+  <section id="try">
+    <h2>Try the AI reply</h2>
+    <p class="sub">Pick a business type, write (or pick) a client email, and see the reply your business would send. This demo uses a fictional business. You have 5 tries.</p>
+    <div class="card">
+      <label for="biz">Business type</label>
+      <select id="biz"></select>
+      <label for="msg">Client email</label>
+      <textarea id="msg" maxlength="1000" placeholder="e.g. Hi, how much is a first appointment and do you have anything next week?"></textarea>
+      <div class="chips" id="samples"></div>
+      <div class="row">
+        <button class="btn" id="go">Generate reply</button>
+        <span class="muted" id="left"></span>
+      </div>
+      <div id="out" style="margin-top:16px"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Everything else it sends for you</h2>
+    <p class="sub">Real examples with sample data. Every email uses your business name, signature and links.</p>
+    <div class="card">
+      <div class="tabs" id="tabs"></div>
+      <div id="preview"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What's included</h2>
+    <div class="card">
+      <ol class="feat">
+        <li><strong>AI email replies</strong> — answers new inquiries using only your own FAQ and prices. Starts in Draft mode: you approve every reply.</li>
+        <li><strong>Appointment reminders</strong> — 24h (and optionally 2h) before, to your clients.</li>
+        <li><strong>Google review requests</strong> — a friendly ask after each appointment.</li>
+        <li><strong>Lead follow-ups</strong> — two polite check-ins if a lead goes quiet, then it stops.</li>
+        <li><strong>Booking confirmations</strong> — with your preparation instructions.</li>
+        <li><strong>Rebooking invitations</strong> — "time for your next visit?" after the weeks you choose.</li>
+        <li><strong>After-hours replies</strong> — clients hear back even when you're closed.</li>
+        <li><strong>Morning report</strong> — today's appointments, new leads and anything that needs you.</li>
+        <li><strong>Lead log</strong> — every inquiry saved in a simple sheet, with a "do not contact" list.</li>
+      </ol>
+      <p class="muted">Requirements: Gmail or Google Workspace + Google Calendar, and a free Google AI Studio key (we help you create it in 2 minutes). Very high email volumes may require enabling billing on that key with Google (usually a few dollars a month).</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Simple pricing</h2>
+    <div class="card">
+      <div class="grid3">
+        <div><div class="muted">One-time setup</div><div class="price">$150</div><div class="muted">Installation and configuration in your account. Non-refundable.</div></div>
+        <div><div class="muted">Then</div><div class="price">$40<span style="font-size:16px">/month</span></div><div class="muted">Starts after your first 60 days — free. Cancel the monthly plan anytime from your billing page.</div></div>
+        <div style="align-self:center"><a class="btn" href="https://buy.stripe.com/test_9B6fZg9kl2iG8aw29N5J600" target="_blank" rel="noopener">Get started</a></div>
+      </div>
+      <p class="note" style="margin-top:18px">DeskMate AI is an assistant, not a replacement for your judgment. That's why it starts in Draft mode, so you approve every reply before it goes out, and you can pause everything with one click. You stay in control of what is sent from your account. By purchasing you agree to our <a href="terms.html" target="_blank">Terms of Service</a>.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div>DeskMate AI · Kilkis 80, 26223 Patras, Greece</div>
+    <div>Questions? DeskMateAi@proton.me · <a href="terms.html" target="_blank">Terms</a> · <a href="privacy.html" target="_blank">Privacy</a></div>
+    <div style="margin-top:6px">Demo only — fictional businesses, nothing is sent to anyone.</div>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var API = 'https://script.google.com/macros/s/AKfycbz7EXIU5utgzTw7avHWLpzbVaVapEiLunRKXpuL213HynMOeAUw2TMCPB2momYCuFfJ/exec';
+  var TYPES = ['Accounting firm','Law firm','Dental clinic','Real estate agency','Home services / contractor','Hair & beauty salon','Fitness / gym','Medical / wellness clinic','Marketing agency','Coaching / consulting','Auto repair','Pet care / vet'];
+  var SAMPLES = [
+    'Hi, how much do you charge and do you have availability next week?',
+    'Can I reschedule my appointment from Thursday to Friday?',
+    "I'm not happy with how my last visit went.",
+    'Do you offer a free consultation? I found you on Google.'
+  ];
+  var $ = function (id) { return document.getElementById(id); };
+  var sel = $('biz');
+  TYPES.forEach(function (t) { var o = document.createElement('option'); o.textContent = t; o.value = t; sel.appendChild(o); });
+  SAMPLES.forEach(function (s) {
+    var b = document.createElement('button'); b.className = 'chip'; b.type = 'button'; b.textContent = s;
+    b.onclick = function () { $('msg').value = s; }; $('samples').appendChild(b);
+  });
+
+  var sid;
+  try { sid = localStorage.getItem('fd_sid'); } catch (e) {}
+  if (!sid) { sid = Math.random().toString(36).slice(2) + Date.now().toString(36); try { localStorage.setItem('fd_sid', sid); } catch (e) {} }
+
+  function emailBox(meta, text) {
+    var d = document.createElement('div'); d.className = 'email';
+    var m = document.createElement('div'); m.className = 'meta'; m.textContent = meta;
+    var t = document.createElement('div'); t.textContent = text;
+    d.appendChild(m); d.appendChild(t); return d;
+  }
+
+  $('go').onclick = function () {
+    var btn = this, out = $('out');
+    btn.disabled = true; btn.textContent = 'Writing…'; out.textContent = '';
+    var done = function (r) {
+      btn.disabled = false; btn.textContent = 'Generate reply';
+      if (!r || !r.ok) { var p = document.createElement('p'); p.className = 'err'; p.textContent = (r && r.error) || 'Something went wrong.'; out.appendChild(p); return; }
+      out.appendChild(emailBox('AI reply · detected: ' + r.category.replace('_', ' ') + ' · in Draft mode this waits for your approval', r.reply));
+      $('left').textContent = r.left > 0 ? r.left + ' tries left' : 'No tries left';
+    };
+    var q = '?demo=1&sid=' + encodeURIComponent(sid) + '&biz=' + encodeURIComponent(sel.value) + '&msg=' + encodeURIComponent($('msg').value);
+    fetch(API + q, { credentials: 'omit' }).then(function (r) { return r.json(); }).then(done)
+      .catch(function () { btn.disabled = false; btn.textContent = 'Generate reply'; out.textContent = 'Connection problem — please try again.'; });
+  };
+
+  var P = {
+    'Reminder': ['To: John · Subject: Reminder: your appointment tomorrow with Maple Street Dental', "Hi John,\n\nJust a friendly reminder of your appointment with Maple Street Dental on Tuesday, October 13 at 10:30 AM (EDT).\nLocation: 120 Maple Street, Springfield\n\nIf you need to reschedule, simply reply to this email or book here: https://example.com/book\n\nSee you soon!\nBest regards,\nMaple Street Dental"],
+    'Review request': ['To: Sarah · Subject: How was your visit, Sarah?', "Hi Sarah,\n\nThank you for choosing Luxe Hair Studio today. If you have a minute, a quick Google review would mean a lot to us and helps others find us:\nhttps://g.page/r/example/review\n\nThank you!\nLuxe Hair Studio"],
+    'Lead follow-up': ['To: Mike · Subject: Re: Bookkeeping question', "Hi Mike,\n\nJust checking in to see if you had any other questions. Happy to help or book here: https://example.com/book\n\nBest regards,\nBrightline Accounting"],
+    'Booking confirmation': ["To: Emma · Subject: You're booked with Core Strength Gym — Monday, October 12 at 6:00 PM", "Hi Emma,\n\nThank you for booking with Core Strength Gym! Your appointment is on Monday, October 12 at 6:00 PM (EDT).\nLocation: 55 Oak Avenue\nPlease bring comfortable shoes and a water bottle.\n\nIf anything changes, just reply to this email.\n\nCore Strength Gym"],
+    'Rebook': ['To: David · Subject: Time for your next visit, David?', "Hi David,\n\nIt has been a little while since your last visit to Precision Auto Care. Whenever you're ready, you can book your next appointment here: https://example.com/book\n\nPrecision Auto Care"],
+    'After hours': ['To: Lisa · Subject: Re: Consultation', "Hi Lisa,\n\nThanks for reaching out! Our team is out of the office right now, and we'll follow up first thing during business hours (Mon-Fri, 9am-5pm).\n\nIn the meantime, you can book a free 20-minute intro call here: https://example.com/book\n\nBest regards,\nBrightline Accounting"],
+    'Morning report': ['To: you · Subject: Brightline Accounting — morning summary', "Good morning,\n\nTODAY'S APPOINTMENTS (3)\n  • 9:30 AM — Tax review (John Miller)\n  • 11:00 AM — Intro call (Anna Lee)\n  • 2:00 PM — Bookkeeping (Mark Diaz)\n\nNEW LEADS IN THE LAST 24H (2)\n  • Rachel Green — Price for tax return? [Replied]\n  • Tom Hall — Payroll help [Needs human]\n\nNEEDS YOUR ATTENTION\n  • Conversations waiting for you: 1\n  • AI drafts ready to send: 2\n\nDONE FOR YOU IN THE LAST 24H\n  • reminder sent: 3\n  • review sent: 2\n  • ai reply draft created: 4"]
+  };
+  var keys = Object.keys(P);
+  function show(k) {
+    Array.prototype.forEach.call(document.querySelectorAll('.tab'), function (b) { b.classList.toggle('on', b.textContent === k); });
+    var pv = $('preview'); pv.textContent = '';
+    pv.appendChild(emailBox(P[k][0], P[k][1]));
+  }
+  keys.concat(['Lead log']).forEach(function (k) {
+    var b = document.createElement('button'); b.className = 'tab'; b.type = 'button'; b.textContent = k;
+    b.onclick = function () { k === 'Lead log' ? showLog() : show(k); }; $('tabs').appendChild(b);
+  });
+  function showLog() {
+    Array.prototype.forEach.call(document.querySelectorAll('.tab'), function (b) { b.classList.toggle('on', b.textContent === 'Lead log'); });
+    var rows = [['Oct 9','Rachel Green','question','Replied'],['Oct 9','Tom Hall','new_lead','Needs human'],['Oct 8','Jake Ross','booking_request','Booked'],['Oct 7','Nina Park','question','Followed up']];
+    var t = document.createElement('table'); var h = t.insertRow();
+    ['Date','Name','Category','Status'].forEach(function (x) { var th = document.createElement('th'); th.textContent = x; h.appendChild(th); });
+    rows.forEach(function (r) { var tr = t.insertRow(); r.forEach(function (c) { tr.insertCell().textContent = c; }); });
+    var pv = $('preview'); pv.textContent = ''; pv.appendChild(t);
+  }
+  show(keys[0]);
+})();
+</script>
+</body>
+</html>
