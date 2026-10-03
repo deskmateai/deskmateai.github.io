@@ -171,7 +171,7 @@
       out.appendChild(emailBox('AI reply · detected: ' + r.category.replace('_', ' ') + ' · in Draft mode this waits for your approval', r.reply));
       $('left').textContent = r.left > 0 ? r.left + ' tries left' : 'No tries left';
     };
-    var q = '?demo=1&sid=' + encodeURIComponent(sid) + '&biz=' + encodeURIComponent(sel.value) + '&msg=' + encodeURIComponent($('msg').value);
+    var q = '?demo=1&t=' + encodeURIComponent(sid) + '&biz=' + encodeURIComponent(sel.value) + '&msg=' + encodeURIComponent($('msg').value);
     fetch(API + q, { credentials: 'omit' }).then(function (r) { return r.json(); }).then(done)
       .catch(function () { btn.disabled = false; btn.textContent = 'Generate reply'; out.textContent = 'Connection problem — please try again.'; });
   };
